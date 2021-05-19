@@ -1,7 +1,7 @@
 using UnityEngine;
 using Zenject;
 
-public class LoggerInstaller : MonoInstaller
+public class MonoLoggerInstaller : MonoInstaller
 {
     public override void InstallBindings()
     {
