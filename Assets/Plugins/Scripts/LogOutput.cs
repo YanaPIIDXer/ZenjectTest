@@ -14,6 +14,12 @@ public class LogOutput : MonoBehaviour
     [Inject]
     private ILogger Logger = null;
 
+    /// <summary>
+    /// 表示文字列
+    /// </summary>
+    public string Message { set { _Message = value; } }
+    private string _Message = "Default";
+
     void Awake()
     {
         StartCoroutine(MainLoop());
@@ -28,7 +34,7 @@ public class LogOutput : MonoBehaviour
         while(true)
         {
             yield return new WaitForSeconds(1.0f);
-            Logger.Show("Test");
+            Logger.Show(_Message);
         }
     }
 }
