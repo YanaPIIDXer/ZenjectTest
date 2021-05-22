@@ -30,9 +30,22 @@ public class BasicLogger : ILogger
 }
 
 /// <summary>
+/// エラーログインタフェース
+/// 実験のためILoggerとは別に定義
+/// </summary>
+public interface IErrorLogger
+{
+    /// <summary>
+    /// 表示
+    /// </summary>
+    /// <param name="Message">表示するメッセージ</param>
+    void Show(string Message);
+}
+
+/// <summary>
 /// エラーログ表示
 /// </summary>
-public class ErrorLogger : ILogger
+public class ErrorLogger : IErrorLogger
 {
     /// <summary>
     /// 表示
