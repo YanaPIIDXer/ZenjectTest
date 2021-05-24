@@ -12,7 +12,7 @@ namespace Sample2
                      .FromIFactory(x => x.To<LogOutputFactory>().AsCached());
             */
             Container.Bind<ILogOutput>()
-                     .FromIFactory(x => x.To<LogOutputFactoryScriptable>().FromNewScriptableObject(new LogOutputFactoryScriptable()).AsCached());
+                     .FromIFactory(x => x.To<LogOutputFactory>().FromNew().AsTransient());
         }
     }
 }
