@@ -12,7 +12,7 @@ namespace Sample2
     {
         public ILogOutput Create()
         {
-            return LogOutput.Create();
+            return LogOutput.Create("Dummy");
         }
     }
 
@@ -21,9 +21,9 @@ namespace Sample2
     /// </summary>
     public class LogOutputFactoryPlaceholder : PlaceholderFactory<LogOutput>
     {
-        public override LogOutput Create()
+        public LogOutput Create(string Message)
         {
-            return LogOutput.Create();
+            return LogOutput.Create(Message);
         }
     }
 }

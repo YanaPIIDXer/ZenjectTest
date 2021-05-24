@@ -28,12 +28,20 @@ namespace Sample2
         /// <summary>
         /// 生成
         /// </summary>
+        /// <param name="Message">表示する文字列</param>
         /// <returns>LogOutputのComponent</returns>
-        public static LogOutput Create()
+        public static LogOutput Create(string Message)
         {
             GameObject Obj = new GameObject("LogOutput");
-            return Obj.AddComponent<LogOutput>();
+            var Output = Obj.AddComponent<LogOutput>();
+            Output.Message = Message;
+            return Output;
         }
+
+        /// <summary>
+        /// 表示する文字列
+        /// </summary>
+        private string Message = "Log Output";
 
         /// <summary>
         /// 破棄
@@ -47,7 +55,7 @@ namespace Sample2
         {
             this.UpdateAsObservable()
                 .ThrottleFirst(TimeSpan.FromSeconds(1.0))
-                .Subscribe((_) => Debug.Log("Log Output"))
+                .Subscribe((_) => Debug.Log(Message))
                 .AddTo(gameObject);
         }
     }

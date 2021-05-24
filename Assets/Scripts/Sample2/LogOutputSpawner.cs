@@ -22,7 +22,7 @@ namespace Sample2
 
         void Awake()
         {
-            ILogOutput Output = OutputFactory.Create();
+            ILogOutput Output = OutputFactory.Create("Injection with parameter.");
             this.UpdateAsObservable()
                 .ThrottleFirst(TimeSpan.FromSeconds(5.0))
                 .Skip(1)
