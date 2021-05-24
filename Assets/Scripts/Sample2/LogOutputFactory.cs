@@ -15,4 +15,15 @@ namespace Sample2
             return LogOutput.Create();
         }
     }
+
+    /// <summary>
+    /// Placeholder版
+    /// </summary>
+    public class LogOutputFactoryPlaceholder : PlaceholderFactory<LogOutput>
+    {
+        public override LogOutput Create()
+        {
+            return LogOutput.Create();
+        }
+    }
 }

@@ -15,13 +15,14 @@ namespace Sample2
     public class LogOutputSpawner : MonoBehaviour
     {
         /// <summary>
-        /// LogOutputのインタフェース
+        /// Factory
         /// </summary>
         [Inject]
-        private ILogOutput Output = null;
+        private LogOutputFactoryPlaceholder OutputFactory = null;
 
         void Awake()
         {
+            ILogOutput Output = OutputFactory.Create();
             this.UpdateAsObservable()
                 .ThrottleFirst(TimeSpan.FromSeconds(5.0))
                 .Skip(1)

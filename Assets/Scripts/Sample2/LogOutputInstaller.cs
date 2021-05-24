@@ -11,8 +11,13 @@ namespace Sample2
             Container.Bind<ILogOutput>()
                      .FromIFactory(x => x.To<LogOutputFactory>().AsCached());
             */
+            /*
             Container.Bind<ILogOutput>()
                      .FromIFactory(x => x.To<LogOutputFactory>().FromNew().AsTransient());
+            */
+
+            Container.BindFactory<LogOutput, LogOutputFactoryPlaceholder>()
+                     .FromIFactory(x => x.To<LogOutputFactoryPlaceholder>().FromNew().AsTransient());
         }
     }
 }
