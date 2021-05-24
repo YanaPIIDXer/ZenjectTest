@@ -15,4 +15,15 @@ namespace Sample2
             return LogOutput.Create();
         }
     }
+
+    /// <summary>
+    /// ScriptableObject版
+    /// </summary>
+    public class LogOutputFactoryScriptable : ScriptableObject, IFactory<ILogOutput>
+    {
+        public ILogOutput Create()
+        {
+            return LogOutput.Create();
+        }
+    }
 }
