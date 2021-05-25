@@ -24,6 +24,7 @@ namespace Sample2
 
             // Singletonの場合
             // ただ、良くないやり方らしい（bad practiceと言うWarningが出る）
+            // 結論：SingletonへのInjectも強引にやろうと思えばできる
             Container.Bind<PureSingleton>().AsCached();
             Container.Resolve<PureSingleton>();
         }
