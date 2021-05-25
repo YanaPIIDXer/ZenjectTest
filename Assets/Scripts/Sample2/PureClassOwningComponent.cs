@@ -13,7 +13,8 @@ namespace Sample2
         /// <summary>
         /// Pureなクラスのインスタンス
         /// </summary>
-        private PureClass PureInstance = new PureClass();
+        [Inject]
+        private PureClass PureInstance = null;
 
         void Awake()
         {
@@ -24,18 +25,6 @@ namespace Sample2
             else
             {
                 Debug.LogError("PureInstance don't have valid LogOutput on Awake()");
-            }
-        }
-
-        void Start()
-        {
-            if (PureInstance.LogOutputIsValid)
-            {
-                Debug.Log("PureInstance have valid LogOutput on Start()");
-            }
-            else
-            {
-                Debug.LogError("PureInstance don't have valid LogOutput on Start()");
             }
         }
     }
