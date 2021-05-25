@@ -13,5 +13,17 @@ namespace Sample2
         /// Pureなクラスのインスタンス
         /// </summary>
         private PureClass PureInstance = new PureClass();
+
+        void Awake()
+        {
+            if (PureInstance.LogOutputIsValid)
+            {
+                Debug.Log("PureInstance have valid LogOutput.");
+            }
+            else
+            {
+                Debug.LogError("PureInstance don't have valid LogOutput");
+            }
+        }
     }
 }

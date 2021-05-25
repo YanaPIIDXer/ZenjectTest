@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Zenject;
 
 namespace Sample2
 {
@@ -9,6 +10,16 @@ namespace Sample2
     /// </summary>
     public class PureClass
     {
+        /// <summary>
+        /// LogOutputインタフェース
+        /// </summary>
+        [Inject]
+        private ILogOutput Output = null;
+
+        /// <summary>
+        /// 有効なLogOutputを保持しているか？
+        /// </summary>
+        public bool LogOutputIsValid { get { return Output != null; } }
     }
 
     /// <summary>
