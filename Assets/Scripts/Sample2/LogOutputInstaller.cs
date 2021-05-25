@@ -21,6 +21,11 @@ namespace Sample2
 
             // 下記の記述でPureClassにInjectできるようになる
             Container.Bind<PureClass>().AsTransient();
+
+            // Singletonの場合
+            // ただ、良くないやり方らしい（bad practiceと言うWarningが出る）
+            Container.Bind<PureSingleton>().AsCached();
+            Container.Resolve<PureSingleton>();
         }
     }
 }

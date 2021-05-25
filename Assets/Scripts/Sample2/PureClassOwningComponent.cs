@@ -20,11 +20,29 @@ namespace Sample2
         {
             if (PureInstance.LogOutputIsValid)
             {
-                Debug.Log("PureInstance have valid LogOutput on Awake()");
+                Debug.Log("PureInstance have valid LogOutput.");
             }
             else
             {
-                Debug.LogError("PureInstance don't have valid LogOutput on Awake()");
+                Debug.LogError("PureInstance don't have valid LogOutput.");
+            }
+
+            if (PureSingleton.Insatnce != null)
+            {
+                Debug.Log("PureSingleton Instantiated.");
+                if (PureSingleton.Insatnce.LogOutputIsValid)
+                {
+                    Debug.Log("PureSingleton have valid LogOutput.");
+                }
+                else
+                {
+                    Debug.LogError("PureSingleton don't have valid LogOutput.");
+                }
+
+            }
+            else
+            {
+                Debug.LogError("PureSingleton is null.");
             }
         }
     }
