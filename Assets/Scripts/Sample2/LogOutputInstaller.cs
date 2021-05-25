@@ -5,6 +5,16 @@ namespace Sample2
 {
     public class LogOutputInstaller : MonoInstaller
     {
+        public override void Start()
+        {
+            base.Start();
+
+            // 下記の記述でPureClassにInjectできるようになる
+            // 但し、InjectされるのはMonoBehaviourのAwakeやStartライフサイクルの後になるので注意が必要
+            Container.Bind<PureClass>().AsSingle();
+            Container.Resolve<PureClass>();
+        }
+
         public override void InstallBindings()
         {
             /*

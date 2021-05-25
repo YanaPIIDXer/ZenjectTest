@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Zenject;
 
 namespace Sample2
 {
@@ -18,11 +19,23 @@ namespace Sample2
         {
             if (PureInstance.LogOutputIsValid)
             {
-                Debug.Log("PureInstance have valid LogOutput.");
+                Debug.Log("PureInstance have valid LogOutput on Awake()");
             }
             else
             {
-                Debug.LogError("PureInstance don't have valid LogOutput");
+                Debug.LogError("PureInstance don't have valid LogOutput on Awake()");
+            }
+        }
+
+        void Start()
+        {
+            if (PureInstance.LogOutputIsValid)
+            {
+                Debug.Log("PureInstance have valid LogOutput on Start()");
+            }
+            else
+            {
+                Debug.LogError("PureInstance don't have valid LogOutput on Start()");
             }
         }
     }
